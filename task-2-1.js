@@ -10,10 +10,9 @@ const getItemsString = function (array) {
   'use strict';
   // Write code under this line
   let result = '';
-  array.join('\n');
   for (let i = 0; i < array.length; i += 1) {
     result = `${i + 1} - ${array[i]}`;
-    // console.table(result);
+    console.table(result);
   }
   return array;
 };
