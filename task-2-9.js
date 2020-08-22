@@ -36,7 +36,7 @@ function isLoginValid(login, min = 4, max = 16) {
 function isLoginUnique(allLogins, login) {
   'use strict';
   // Write code under this line
-  return allLogins.includes(login);
+  return allLogins.includes(login) ? false : true;
 }
 
 function addLogin(allLogins, login) {
@@ -46,9 +46,10 @@ function addLogin(allLogins, login) {
   const ERROR = 'Ошибка! Логин должен быть размером от 4 до 16 символов';
   let message;
   // Write code under this line
-  if (isLoginValid(login) === false) {
+
+  if (isLoginValid(login) == false) {
     message = ERROR;
-  } else if (isLoginUnique(allLogins, login) === true) {
+  } else if (isLoginUnique(allLogins, login) == false) {
     message = REFUSAL;
   } else {
     allLogins.push(login);
@@ -57,18 +58,18 @@ function addLogin(allLogins, login) {
   return message;
 }
 
-// const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
-const logins = ['1234', '12345'];
-console.log(isLoginUnique(logins, '4444'));
+const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
+// const logins = ['1234', '12345'];
+// console.log(addLogin(logins, '1234'));
 
-// console.log(addLogin(logins, 'Ajax'));
+console.log(addLogin(logins, 'Ajax'));
 // 'Логин успешно добавлен!'
 
-// console.log(addLogin(logins, 'robotGoogles'));
+console.log(addLogin(logins, 'robotGoogles'));
 // 'Такой логин уже используется!'
 
-// console.log(addLogin(logins, 'Zod'));
+console.log(addLogin(logins, 'Zod'));
 // 'Ошибка! Логин должен быть от 4 до 16 символов'
 
-// console.log(addLogin(logins, 'jqueryisextremelyfast'));
+console.log(addLogin(logins, 'jqueryisextremelyfast'));
 // 'Ошибка! Логин должен быть от 4 до 16 символов'
